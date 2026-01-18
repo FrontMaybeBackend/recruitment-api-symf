@@ -19,7 +19,7 @@ class DashboardController extends AbstractDashboardController
         if(!$user) {
             return $this->redirectToRoute('app_login');
         }
-        return $this->redirect($this->generateUrl('admin_application_crud'));
+        return $this->redirect($this->generateUrl('admin_application_index'));
     }
 
     public function configureDashboard(): Dashboard
@@ -32,7 +32,6 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Aplikacje', 'fas fa-list', Application::class);
     }
 }
